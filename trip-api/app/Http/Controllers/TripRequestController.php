@@ -65,7 +65,7 @@ class TripRequestController extends Controller
             'return_date' => $request->return_date
         ]);
 
-        return response()->json(['message' => 'Solicitação criada com sucesso', 201]);
+        return response()->json(['message' => 'Solicitação criada com sucesso'], 201);
 
     }
 

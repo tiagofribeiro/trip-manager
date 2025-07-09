@@ -32,7 +32,7 @@ class AuthController extends Controller
             'password' => $request->password
         ]);
 
-        return response()->json(['message' => 'Usuário criado com sucesso', 201]);
+        return response()->json(['message' => 'Usuário criado com sucesso'], 201);
     }
 
     public function login(Request $request)
