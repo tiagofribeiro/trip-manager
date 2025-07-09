@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
 
+/**
+ * @group Users
+ */
 class AuthController extends Controller
 {
+    /**
+     * @authenticated
+     */
     public function profile(Request $request)
     {
         return response()->json($request->user());
@@ -33,8 +37,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $credentials = $request->only('email', 'password');
 
+        // JWTAuth::attempt($credentials);
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Credenciais inválidas'], 401);
         }
@@ -46,6 +56,9 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @authenticated
+     */
     public function refreshToken(Request $request)
     {
         return response()->json([
