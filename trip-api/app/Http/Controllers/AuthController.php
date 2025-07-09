@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
 
+/**
+ * @group Users
+ */
 class AuthController extends Controller
 {
     /**
@@ -43,6 +44,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
+        // JWTAuth::attempt($credentials);
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Credenciais inválidas'], 401);
         }
