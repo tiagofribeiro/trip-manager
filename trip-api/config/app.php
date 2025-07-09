@@ -4,6 +4,8 @@ return [
 
     'name' => env('APP_NAME', 'trip-manager-api'),
 
+    'description' => env('APP_DESCRIPTION', 'Trip Manager API'),
+
     'env' => env('APP_ENV', 'prod'),
 
     'debug' => (bool) env('APP_DEBUG', false),
