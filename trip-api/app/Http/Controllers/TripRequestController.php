@@ -64,9 +64,8 @@ class TripRequestController extends Controller
             'departure_date' => $request->departure_date,
             'return_date' => $request->return_date
         ]);
-
+      
         return response()->json(['message' => 'Solicitação criada com sucesso'], 201);
-
     }
 
     // TODO: limitar funcionalidades abaixo para Admin?
