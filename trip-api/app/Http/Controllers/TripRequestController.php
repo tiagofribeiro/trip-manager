@@ -37,13 +37,14 @@ class TripRequestController extends Controller
     /**
      * @authenticated
      */
-    public function getOne($trip_request_id)
-    {
-        $query = TripRequest::where('user_id', auth()->id())
-            ->where('id', $trip_request_id);
-        return response()->json($query->first(), 200);
+public function getOne($trip_request_id)
+{
+    $query = TripRequest::with('user')
+        ->where('user_id', auth()->id())
+        ->where('id', $trip_request_id);
 
-    }
+    return response()->json($query->first(), 200);
+}
 
     /**
      * @authenticated
