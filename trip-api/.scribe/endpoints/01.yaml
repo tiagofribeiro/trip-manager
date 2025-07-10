@@ -134,7 +134,7 @@ endpoints:
         name: departure_date
         description: 'Must be a valid date.'
         required: true
-        example: '2025-07-09T06:33:52'
+        example: '2025-07-10T02:47:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -144,7 +144,7 @@ endpoints:
         name: return_date
         description: 'Must be a valid date. Must be a date after or equal to <code>departure_date</code>.'
         required: false
-        example: '2051-08-02'
+        example: '2051-08-03'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,8 +152,8 @@ endpoints:
         custom: []
     cleanBodyParameters:
       destination: b
-      departure_date: '2025-07-09T06:33:52'
-      return_date: '2051-08-02'
+      departure_date: '2025-07-10T02:47:14'
+      return_date: '2051-08-03'
     fileParameters: []
     responses: []
     responseFields: []

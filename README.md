@@ -11,7 +11,9 @@ Sistema de gerenciamento de solicitações de viagens corporativas
 
 ## Introdução
 
-Este projeto almeja prover um backend ([Laravel](https://laravel.com/docs/12.x)) e um frontend ([Vue](https://vuejs.org/guide/introduction.html)) para gerenciar solicitações de viagens corporativas.
+Este projeto almeja prover um backend ([Laravel](https://laravel.com/docs/12.x)) e um frontend ([Vue](https://vuejs.org/guide/introduction.html)) para gerenciar solicitações de viagens corporativas.  
+  
+Documentação da API gerada usando [Scribe](https://scribe.knuckles.wtf/laravel/).
 
 <br>
 
@@ -63,6 +65,13 @@ Para executá-lo:
 - Execute: `docker exec -it {nome-container-api-1} php artisan test`
 
 <br>
+
+> :warning: OBS.: No web não é possível filtrar as solicitações por status, mas a API consegue filtrar por status, destino e datas.
+
 <br>
+<br>
+
+
+
 
 ##### [E se quiser ver algumas das outras ideias que já tive...](https://github.com/tiagofribeiro)
