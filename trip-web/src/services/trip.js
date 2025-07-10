@@ -24,7 +24,7 @@ export const createTrip = (data) => {
 }
 
 export const updateTripStatus = (id, status) => {
-  return api.patch(`/trips/${id}`, { status }, {
+  return api.put(`/trips/${id}`, { status }, {
     headers: authHeader()
   })
 }

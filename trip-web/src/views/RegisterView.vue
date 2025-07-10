@@ -1,59 +1,64 @@
 <script setup>
 import { ref } from 'vue';
-import { useRouter, RouterLink } from 'vue-router';
-import { login } from '@/services/user'
+import { useRouter } from 'vue-router';
+import { register } from '@/services/user';
 
+const name = ref('')
 const email = ref('')
 const password = ref('')
 const error = ref('')
+const success = ref('')
 const router = useRouter()
 
-const handleLogin = async () => {
-  error.value = null
+const handleRegister = async () => {
+  error.value = ''
+  success.value = ''
 
   try {
-    const response = await login({
+    await register({
+      name: name.value,
       email: email.value,
       password: password.value
     })
 
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token)
-      router.push('/dashboard')
-    } else {
-      error.value = 'Não foi possível realizar o login. Cheque suas credenciais.'
-    }
+    success.value = 'Registro realizado com sucesso! Faça login.'
+
+    // TODO: melhorar exibição de feedback?
+    setTimeout(() => {
+      router.push('/login')
+    }, 1500)
   } catch (err) {
-    error.value = err.response?.data?.error || 'Erro ao fazer login'
+    error.value = err.response?.data?.message || 'Erro ao registrar'
   }
 }
-
 </script>
 
 <template>
-  <main class="login-container">
-    <h1>Login</h1>
-    <form @submit.prevent="handleLogin">
+  <main class="register-container">
+    <h1>Registrar</h1>
+    <form @submit.prevent="handleRegister">
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input id="name" v-model="name" required />
+      </div>
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" v-model="email" required />
       </div>
       <div class="form-group">
-        <label for="password">Password:</label>
+        <label for="password">Senha:</label>
         <input type="password" id="password" v-model="password" required />
       </div>
-      <button type="submit">Entrar</button>
+      <button type="submit">Registrar</button>
     </form>
-    <p>
-      <RouterLink to="/register">Registrar-se</RouterLink>
-    </p>
 
     <p v-if="error" class="error">{{ error }}</p>
+    <p v-if="success" class="success">{{ success }}</p>
   </main>
 </template>
 
 <style scoped>
-.login-container {
+.register-container {
   max-width: 400px;
   margin: auto;
   padding: 2rem;
@@ -92,6 +97,11 @@ button:hover {
 
 .error {
   color: red;
+  margin-top: 1rem;
+}
+
+.success {
+  color: green;
   margin-top: 1rem;
 }
 </style>
