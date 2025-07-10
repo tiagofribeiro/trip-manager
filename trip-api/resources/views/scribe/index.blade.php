@@ -116,7 +116,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 9, 2025</li>
+        <li>Last updated: July 10, 2025</li>
     </ul>
 </div>
 
@@ -446,8 +446,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"destination\": \"b\",
-    \"departure_date\": \"2025-07-09T06:33:52\",
-    \"return_date\": \"2051-08-02\"
+    \"departure_date\": \"2025-07-10T02:47:14\",
+    \"return_date\": \"2051-08-03\"
 }"
 </code></pre></div>
 
@@ -465,8 +465,8 @@ const headers = {
 
 let body = {
     "destination": "b",
-    "departure_date": "2025-07-09T06:33:52",
-    "return_date": "2051-08-02"
+    "departure_date": "2025-07-10T02:47:14",
+    "return_date": "2051-08-03"
 };
 
 fetch(url, {
@@ -577,10 +577,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="departure_date"                data-endpoint="POSTapi-trips"
-               value="2025-07-09T06:33:52"
+               value="2025-07-10T02:47:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-09T06:33:52</code></p>
+<p>Must be a valid date. Example: <code>2025-07-10T02:47:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>return_date</code></b>&nbsp;&nbsp;
@@ -588,10 +588,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="return_date"                data-endpoint="POSTapi-trips"
-               value="2051-08-02"
+               value="2051-08-03"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>departure_date</code>. Example: <code>2051-08-02</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>departure_date</code>. Example: <code>2051-08-03</code></p>
         </div>
         </form>
 
